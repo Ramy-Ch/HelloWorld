@@ -18,6 +18,7 @@ return (
         onChange={(e)=>setNewTâches(e.target.value)}
         placeholder="Ajoutez une tâche"
         />
+        <button onClick={ajoutTâche}>Add</button>
     </div>
 )
 
