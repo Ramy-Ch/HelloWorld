@@ -5,7 +5,8 @@ function barre() {
 
     function ajoutTâche(){
         if (newTâches){
-            setTâches
+            setTâches([...tâches, newTâches]);
+            setNewTâches('')
         }
     }
 }
@@ -19,6 +20,11 @@ return (
         placeholder="Ajoutez une tâche"
         />
         <button onClick={ajoutTâche}>Add</button>
+        <ul>
+        {taches.map((tache, index) => (
+          <li key={index}>{tache}</li>
+        ))}
+      </ul>
     </div>
 )
 
