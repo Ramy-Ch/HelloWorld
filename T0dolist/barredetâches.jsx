@@ -15,7 +15,9 @@ return (
         <h1>T0dolist</h1>
         <input type= "text"
         Value={newTâches}
-        placeholder="Ajoutez une tâche"/>
+        onChange={(e)=>setNewTâches(e.target.value)}
+        placeholder="Ajoutez une tâche"
+        />
     </div>
 )
 
