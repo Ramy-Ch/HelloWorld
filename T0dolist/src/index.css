@@ -6,7 +6,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background: rgb(63,94,251);
+background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
   color: #333;
   display: flex;
   justify-content: center;
@@ -16,7 +17,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #4CAF50;
+  color: #4CC9F0;
 }
 
 div {
