@@ -41,7 +41,8 @@ function Calculator() {
         <button onClick={() => handleClick("-")}>-</button>
         <button onClick={() => handleClick("*")}>*</button>
         <button onClick={() => handleClick("/")}>/</button>
-        <button onClick={handleClear}>C</button>
+        <button onClick={handleClear} className="clear-button">C</button>
+
     
       </div>
     </div>

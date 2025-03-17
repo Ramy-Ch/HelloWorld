@@ -135,12 +135,12 @@ th {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
-  justify-items: center;
+  justify-items: stretch; 
 }
 
 .buttons button {
   color: #333;
-  width: 4rem;
+  width: 100%;
   height: 4rem;
   margin: 0.5rem;
   font-size: 1.5rem;
@@ -153,6 +153,12 @@ th {
 
 .buttons button:hover {
   background-color: #f0f0f0;
+}
+
+.buttons .clear-button {
+  grid-column: 1 / -1;
+  color: red !important;
+  height: 4rem; 
 }
 
 .timer-container {
