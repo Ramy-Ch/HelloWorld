@@ -5,7 +5,8 @@ import Navbar from "./Navbar";
 import Calculator from "./Calculator";
 import "./index.css";
 import Chronometer from "./Chronometer";
-import Banner from "./Banner"; // Importation du composant Banner
+import Banner from "./Banner";
+import GeoLocalisation from "./GeoLocalisation";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/ToDoList" element={<ToDoList />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/chronometer" element={<Chronometer />} />
+          <Route path="/geolocation" element={<GeoLocalisation />} />
         </Routes>
       </div>
     </div>

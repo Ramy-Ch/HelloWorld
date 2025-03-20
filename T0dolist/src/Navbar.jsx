@@ -32,6 +32,12 @@ function Navbar() {
         >
           ⏱️ Chronomètre
         </button>
+        <button
+          className="bg-white text-[#4361EE] p-2 rounded-md mx-2 font-semibold"
+          onClick={() => navigate("/geoLocalisation")}
+        >
+          🌍 Géolocalisation
+        </button>
       </div>
     </nav>
   );

@@ -9,32 +9,7 @@ const GeoLocalisation = () => {
     setCity(event.target.value);
   };
 
-  const handleSearch = () => {
-    if (city.length >= 3) {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.cod === 200) {
-            setLocation({
-              latitude: data.coord.lat,
-              longitude: data.coord.lon,
-            });
-            setError("");
-          } else {
-            setError("Ville non trouvée");
-            setLocation(null);
-          }
-        })
-        .catch(() => {
-          setError("Erreur lors de la recherche");
-          setLocation(null);
-        });
-    } else {
-      setError("Veuillez entrer au moins 3 caractères");
-      setLocation(null);
-    }
-  };
-
+  
   return (
     <div>
       <h2>Géolocalisation</h2>
