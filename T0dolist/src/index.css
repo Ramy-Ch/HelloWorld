@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+title {
+  justify-content: center;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
@@ -56,6 +60,115 @@ nav button {
 nav button:hover {
   background: darkred;
   color: white;
+}
+
+.banner {
+  position: sticky;
+  top: 60px;
+  width: 100%;
+  background-color: #FFD700;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  overflow: hidden;
+  z-index: 9;
+}
+
+.banner-text {
+  display: inline-block;
+  animation: scroll-left 10s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+.loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin : auto;
+}
+
+.dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: orange;
+  border-radius: 50%;
+  animation: dotAnimation 1.5s linear infinite;
+}
+
+.dot:nth-child(1) {
+  top: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  top: 14.64%;
+  left: 85.36%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.1875s;
+}
+
+.dot:nth-child(3) {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.375s;
+}
+
+.dot:nth-child(4) {
+  top: 85.36%;
+  left: 85.36%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.5625s;
+}
+
+.dot:nth-child(5) {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.75s;
+}
+
+.dot:nth-child(6) {
+  top: 85.36%;
+  left: 14.64%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.9375s;
+}
+
+.dot:nth-child(7) {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  animation-delay: 1.125s;
+}
+
+.dot:nth-child(8) {
+  top: 14.64%;
+  left: 14.64%;
+  transform: translate(-50%, -50%);
+  animation-delay: 1.3125s;
+}
+
+@keyframes dotAnimation {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.3;
+  }
 }
 
 .main-content {
@@ -135,7 +248,7 @@ th {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
-  justify-items: stretch; 
+  justify-items: stretch;
 }
 
 .buttons button {
@@ -158,7 +271,7 @@ th {
 .buttons .clear-button {
   grid-column: 1 / -1;
   color: red !important;
-  height: 4rem; 
+  height: 4rem;
 }
 
 .timer-container {
@@ -203,4 +316,50 @@ th {
 
 .timer button:hover {
   background-color: #2d47a0;
+}
+
+.geolocation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.geolocation-container input,
+.geolocation-container button {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.geolocation-container button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.geolocation-container button:hover {
+  background-color: #45a049;
+}
+
+.geolocation-container p {
+  color: #f44336;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.autocomplete-container {
+  width: 100%;
+  max-width: 500px;
 }
