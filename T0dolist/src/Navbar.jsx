@@ -22,12 +22,6 @@ function Navbar() {
         </button>
         <button
           className="bg-white text-[#4361EE] p-2 rounded-md mx-2 font-semibold"
-          onClick={() => navigate("/calculator")}
-        >
-          🧮 Calculatrice
-        </button>
-        <button
-          className="bg-white text-[#4361EE] p-2 rounded-md mx-2 font-semibold"
           onClick={() => navigate("/chronometer")}
         >
           ⏱️ Chronomètre

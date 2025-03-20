@@ -12,8 +12,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Banner /> 
-      <div className="flex items-center justify-center h-screen">
+      <Banner />
+      <div className="main-container">
         <Routes>
           <Route path="/" element={<div className="main-content"><h1>Bienvenue</h1></div>} />
           <Route path="/ToDoList" element={<ToDoList />} />

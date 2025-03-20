@@ -40,7 +40,7 @@ const GeoLocalisation = () => {
   };
 
   return (
-    <div>
+    <div className="geolocation-container">
       <h2>Géolocalisation</h2>
       <input
         type="text"
