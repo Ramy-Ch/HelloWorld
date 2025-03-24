@@ -63,6 +63,13 @@ const GeoLocalisation = () => {
     setSuggestions([]);
   };
 
+  const handleReset = () => {
+    setCity("");
+    setLocation(null);
+    setError("");
+    setSuggestions([]);
+  };
+
   return (
     <div className="geolocation-container">
       <h2>Géolocalisation</h2>
@@ -73,6 +80,7 @@ const GeoLocalisation = () => {
         placeholder="Entrez une ville"
       />
       <button onClick={handleSearch}>Rechercher</button>
+      <button onClick={handleReset}>Réinitialiser</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {suggestions.length > 0 && (
         <ul style={{ border: "1px solid #ccc", maxHeight: "150px", overflowY: "auto" }}>
