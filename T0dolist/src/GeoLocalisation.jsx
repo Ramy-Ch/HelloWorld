@@ -6,6 +6,8 @@ const GeoLocalisation = () => {
   const [error, setError] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
+  const API_KEY = "14a00ee02c7349a4a71723aec70a0b6a";
+
   const handleInputChange = async (event) => {
     const value = event.target.value;
     setCity(value);
@@ -13,12 +15,15 @@ const GeoLocalisation = () => {
     if (value.trim()) {
       try {
         const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(
+          `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(
             value
-          )}&format=json&limit=5`
+          )}&apiKey=${API_KEY}`
         );
         const data = await response.json();
-        setSuggestions(data);
+
+        if (data.features) {
+          setSuggestions(data.features);
+        }
       } catch (err) {
         setError("Erreur lors de la récupération des suggestions.");
         setSuggestions([]);
@@ -37,16 +42,16 @@ const GeoLocalisation = () => {
 
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(
+        `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
           city
-        )}&format=json`
+        )}&apiKey=${API_KEY}`
       );
       const data = await response.json();
 
-      if (data.length > 0) {
+      if (data.features && data.features.length > 0) {
         setLocation({
-          latitude: data[0].lat,
-          longitude: data[0].lon,
+          latitude: data.features[0].geometry.coordinates[1],
+          longitude: data.features[0].geometry.coordinates[0],
         });
       } else {
         setError("Ville non trouvée.");
@@ -59,7 +64,7 @@ const GeoLocalisation = () => {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setCity(suggestion.display_name);
+    setCity(suggestion.properties.formatted);
     setSuggestions([]);
   };
 
@@ -90,7 +95,7 @@ const GeoLocalisation = () => {
               onClick={() => handleSuggestionClick(suggestion)}
               style={{ cursor: "pointer", padding: "5px" }}
             >
-              {suggestion.display_name}
+              {suggestion.properties.formatted}
             </li>
           ))}
         </ul>
